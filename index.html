@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="АНО Социально-досуговый центр ВМЕСТЕ — помощь детям и семьям Курской области. Иппотерапия, проекты для детей с ОВЗ, поддержка семей в режиме ЧС.">
+    <meta property="og:title" content="АНО Социально-досуговый центр ВМЕСТЕ">
+    <meta property="og:description" content="Помощь детям и семьям Курской области. Иппотерапия, адаптивная верховая езда, поддержка детей с РАС.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>ВМЕСТЕ</span>
+                <img src="images/logo.png" alt="Логотип ВМЕСТЕ" class="logo__img">
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#projects" class="nav-link">Проекты</a>
+                <a href="#team" class="nav-link">Команда</a>
+                <a href="#gallery" class="nav-link">Галерея</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+                <a href="#donate" class="nav-link nav-link--cta">Помочь</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <img src="images/hero.jpg" alt="Иппотерапия в манеже" loading="eager">
+            <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__content">
+            <span class="hero__label">Автономная некоммерческая организация</span>
+            <h1 class="hero__title">Социально-досуговый центр <span class="hero__accent">ВМЕСТЕ</span></h1>
+            <p class="hero__subtitle">Вместе — значит сильнее. Помощь детям и семьям Курской области</p>
+            <div class="hero__actions">
+                <a href="#projects" class="btn btn--primary">Наши проекты</a>
+                <a href="#donate" class="btn btn--outline">Поддержать</a>
+            </div>
+        </div>
+        <a href="#about" class="hero__scroll" aria-label="Прокрутить вниз">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- About -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Кто мы</span>
+                <h2 class="section-title">О нас</h2>
+                <p class="section-desc">Создаём пространство заботы и развития для детей и семей Курской области</p>
+            </div>
+            <div class="about__grid">
+                <div class="about__card">
+                    <div class="about__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h3>Миссия</h3>
+                    <p>Мы верим, что каждый ребёнок заслуживает заботы, поддержки и возможности развиваться. Наша миссия — объединить усилия общества, чтобы помогать детям с особенностями развития, семьям в трудной жизненной ситуации и всем, кто нуждается в помощи.</p>
+                </div>
+                <div class="about__card">
+                    <div class="about__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>История</h3>
+                    <p>Организация начала свою работу в 2023 году. Создана в целях предоставления услуг в социальной сфере и оказания помощи незащищённым слоям населения. За несколько лет мы реализовали несколько грантовых проектов и продолжаем расти.</p>
+                </div>
+                <div class="about__card">
+                    <div class="about__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Ценности</h3>
+                    <p>Достоинство каждого человека, доступность помощи, профессионализм, сострадание и открытость. Мы работаем для тех, кто особенно нуждается в поддержке — детей с инвалидностью, семей в кризисе, людей в трудной жизненной ситуации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Что мы делаем</span>
+                <h2 class="section-title">Наши проекты</h2>
+                <p class="section-desc">Грантовые программы, которые меняют жизни детей и семей Курской области</p>
+            </div>
+            <div class="projects__grid">
+                <div class="project-card">
+                    <div class="project-card__badge badge--green">Победитель гранта 2024</div>
+                    <div class="project-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-card__title">ZOV</h3>
+                    <p class="project-card__subtitle">Зона Особого Внимания</p>
+                    <p class="project-card__desc">Успокоительно-поддерживающий проект для семей с детьми из Курской области. Победитель конкурса грантов Губернатора Курской области 2024.</p>
+                    <div class="project-card__meta">
+                        <span class="project-card__year">2024</span>
+                        <span class="project-card__org">Губернатор Курской области</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__badge badge--sand">Победитель гранта 2025</div>
+                    <div class="project-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-card__title">ZOV 2.0</h3>
+                    <p class="project-card__subtitle">Зона Особого Внимания</p>
+                    <p class="project-card__desc">Успокоительно-поддерживающий проект для семей с детьми из Курской области, проживающими в режиме ЧС и КТО. Победитель конкурса грантов Губернатора 2025.</p>
+                    <div class="project-card__meta">
+                        <span class="project-card__year">2025</span>
+                        <span class="project-card__org">Губернатор Курской области</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__badge badge--gold">Победитель гранта 2026</div>
+                    <div class="project-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="8" r="7"/>
+                            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-card__title">Шаг к Победе</h3>
+                    <p class="project-card__subtitle">Адаптивная верховая езда</p>
+                    <p class="project-card__desc">Программа по адаптивной верховой езде и подготовке детей с инвалидностью и ОВЗ к участию в Специальной Олимпиаде. Победитель конкурса грантов Губернатора 2026.</p>
+                    <div class="project-card__meta">
+                        <span class="project-card__year">2026</span>
+                        <span class="project-card__org">Губернатор Курской области</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__badge badge--rose">Президентский грант 2026</div>
+                    <div class="project-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3v1m0 16v1m-9-9h1m16 0h1M5.6 5.6l.7.7m12.1-.7l-.7.7M5.6 18.4l.7-.7m12.1.7l-.7-.7M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-card__title">РАСсвет</h3>
+                    <p class="project-card__subtitle">Детям с РАС</p>
+                    <p class="project-card__desc">Проект направлен на помощь детям с расстройствами аутистического спектра (РАС) от 3 до 13 лет. Предотвращение развития ПТСР и тревоги. Победитель Фонда Президентских Грантов 2026.</p>
+                    <div class="project-card__meta">
+                        <span class="project-card__year">2026</span>
+                        <span class="project-card__org">Фонд Президентских Грантов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Наши люди</span>
+                <h2 class="section-title">Команда</h2>
+                <p class="section-desc">Профессионалы, для кого помощь детям — призвание</p>
+            </div>
+            <div class="team__card">
+                <div class="team__photo">
+                    <img src="images/gallery5.jpg" alt="Озерова Валерия Анатольевна — иппотерапевт">
+                </div>
+                <div class="team__info">
+                    <h3 class="team__name">Озерова Валерия Анатольевна</h3>
+                    <p class="team__role">Иппотерапевт</p>
+                    <p class="team__creds">Член национальной федерации иппотерапии и адаптивного конного спорта</p>
+                    <div class="team__bio">
+                        <p>По первому образованию я архитектор-дизайнер (ВГАСУ, 2014), и именно через проектирование пространства я впервые пришла к пониманию, насколько среда влияет на человека — на его эмоции, движение и внутреннее состояние.</p>
+                        <p>Со временем мой профессиональный путь привёл меня в медицину. В 2021 году я получила диплом медицинской сестры (КБМК), что стало основой для работы с детьми и взрослыми в реабилитационном направлении.</p>
+                        <p>Продолжая развиваться, в 2023 году я завершила обучение в МЦПО по программе «Инструктор ЛФК», где получила практические навыки работы с движением, телесной коррекцией и восстановлением после заболеваний.</p>
+                        <p>На данный момент продолжаю образование: февраль 2025 — окончание курса по аналитической психологии, июнь 2025 — обучение по направлению иппотерапии. Май 2026 — «Использование методов сенсорной интеграции в работе с детьми дошкольного возраста с ОВЗ».</p>
+                    </div>
+                    <blockquote class="team__quote">
+                        <p>«Верю, что реабилитация — это не только лечение, но и возвращение человека к себе.»</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">В кадре</span>
+                <h2 class="section-title">Галерея</h2>
+                <p class="section-desc">Моменты, которые вдохновляют нас продолжать</p>
+            </div>
+            <div class="gallery__grid">
+                <div class="gallery__item gallery__item--large">
+                    <img src="images/gallery1.jpg" alt="Занятие по иппотерапии" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Иппотерапия</span>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="images/gallery2.jpg" alt="Адаптивная верховая езда" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Адаптивная езда</span>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="images/gallery3.jpg" alt="Работа с ребёнком" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Забота</span>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="images/gallery4.jpg" alt="Команда в манеже" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Команда</span>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="images/gallery6.jpg" alt="Ребёнок на лошади" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Доверие</span>
+                    </div>
+                </div>
+                <div class="gallery__item gallery__item--wide">
+                    <img src="images/gallery7.jpg" alt="Иппотерапия для детей" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Развитие</span>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="images/gallery8.png" alt="Творческие занятия с детьми" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span>Творчество</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="contacts section" id="contacts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Связь</span>
+                <h2 class="section-title">Контакты</h2>
+                <p class="section-desc">Мы на связи и рады ответить на ваши вопросы</p>
+            </div>
+            <div class="contacts__grid">
+                <a href="https://vk.com/club224988592" target="_blank" rel="noopener" class="contacts__card">
+                    <div class="contacts__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.033-1.49-1.171-1.744-1.171-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.696 4 8.219c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.678.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.048.17.491-.085.744-.576.744z"/>
+                        </svg>
+                    </div>
+                    <h3>Группа ВКонтакте</h3>
+                    <p>vk.com/club224988592</p>
+                    <span class="contacts__link">Перейти →</span>
+                </a>
+                <div class="contacts__card">
+                    <div class="contacts__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Регион</h3>
+                    <p>Курская область</p>
+                </div>
+                <div class="contacts__card">
+                    <div class="contacts__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3>Связь</h3>
+                    <p>Пишите нам в группе ВК — мы отвечаем оперативно</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate -->
+    <section class="donate section" id="donate">
+        <div class="donate__bg">
+            <div class="donate__overlay"></div>
+        </div>
+        <div class="container">
+            <div class="donate__grid">
+                <div class="donate__left">
+                    <h2 class="donate__title">Поддержите наши проекты</h2>
+                    <p class="donate__text">Ваше пожертвование помогает детям с особенностями развития получить необходимую помощь, семьям — пережить трудные времена, а обществу — стать добрее. Каждый вклад важен.</p>
+                    <a href="https://vk.com/club224988592" target="_blank" rel="noopener" class="btn btn--primary btn--large">Связаться для помощи</a>
+                </div>
+                <div class="donate__right">
+                    <img src="images/logo-donate.png" alt="Логотип ВМЕСТЕ" class="donate__logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">ВМЕСТЕ</a>
+                    <p>АНО Социально-досуговый центр<br>Курская область</p>
+                </div>
+                <div class="footer__links">
+                    <a href="#about">О нас</a>
+                    <a href="#projects">Проекты</a>
+                    <a href="#team">Команда</a>
+                    <a href="#gallery">Галерея</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#donate">Помочь</a>
+                </div>
+                <div class="footer__social">
+                    <a href="https://vk.com/club224988592" target="_blank" rel="noopener" aria-label="ВКонтакте">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.033-1.49-1.171-1.744-1.171-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.696 4 8.219c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.678.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.048.17.491-.085.744-.576.744z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 АНО Социально-досуговый центр ВМЕСТЕ. Курская область.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
