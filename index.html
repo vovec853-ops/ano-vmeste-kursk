@@ -315,7 +315,31 @@
                 <div class="donate__left">
                     <h2 class="donate__title">Поддержите наши проекты</h2>
                     <p class="donate__text">Ваше пожертвование помогает детям с особенностями развития получить необходимую помощь, семьям — пережить трудные времена, а обществу — стать добрее. Каждый вклад важен.</p>
-                    <a href="https://vk.com/club224988592" target="_blank" rel="noopener" class="btn btn--primary btn--large">Связаться для помощи</a>
+                    <form class="donate__form" id="donateForm" onsubmit="event.preventDefault(); alert('Форма оплаты в процессе подключения. Свяжитесь с нами через ВК для пожертвования.');">
+                        <div class="donate__amounts">
+                            <label class="donate__amount">
+                                <input type="radio" name="amount" value="500" checked>
+                                <span>500 ₽</span>
+                            </label>
+                            <label class="donate__amount">
+                                <input type="radio" name="amount" value="1000">
+                                <span>1 000 ₽</span>
+                            </label>
+                            <label class="donate__amount">
+                                <input type="radio" name="amount" value="3000">
+                                <span>3 000 ₽</span>
+                            </label>
+                            <label class="donate__amount">
+                                <input type="radio" name="amount" value="5000">
+                                <span>5 000 ₽</span>
+                            </label>
+                        </div>
+                        <div class="donate__custom">
+                            <input type="number" name="custom" placeholder="Другая сумма" min="100">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--large">Пожертвовать</button>
+                        <p class="donate__note">Нажимая кнопку, вы соглашаетесь с <a href="offer.html" target="_blank">условиями публичной оферты</a>.</p>
+                    </form>
                 </div>
                 <div class="donate__right">
                     <img src="images/logo-donate.png" alt="Логотип ВМЕСТЕ" class="donate__logo">
@@ -333,12 +357,15 @@
                     <p>АНО Социально-досуговый центр<br>Курская область</p>
                 </div>
                 <div class="footer__links">
-                    <a href="#about">О нас</a>
-                    <a href="#projects">Проекты</a>
-                    <a href="#team">Команда</a>
-                    <a href="#gallery">Галерея</a>
-                    <a href="#contacts">Контакты</a>
-                    <a href="#donate">Помочь</a>
+                    <a href="index.html#about">О нас</a>
+                    <a href="index.html#projects">Проекты</a>
+                    <a href="index.html#team">Команда</a>
+                    <a href="index.html#gallery">Галерея</a>
+                    <a href="index.html#contacts">Контакты</a>
+                    <a href="index.html#donate">Помочь</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                    <a href="terms.html">Пользовательское соглашение</a>
                 </div>
                 <div class="footer__social">
                     <a href="https://vk.com/club224988592" target="_blank" rel="noopener" aria-label="ВКонтакте">
@@ -355,5 +382,13 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Cookies Banner -->
+    <div class="cookies-banner" id="cookiesBanner">
+        <div class="cookies-banner__content">
+            <p>Мы используем cookies и данные о посещении сайта для улучшения работы. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.</p>
+            <button class="btn btn--primary" id="cookiesAccept">Принять</button>
+        </div>
+    </div>
 </body>
 </html>
