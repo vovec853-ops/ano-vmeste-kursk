@@ -205,6 +205,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // ===== Team Slider =====
+    const teamSlider = document.getElementById('teamSlider');
+    if (teamSlider) {
+        const slides = teamSlider.querySelectorAll('.team__slide');
+        const dots = teamSlider.querySelectorAll('.team__dot');
+        const prevBtn = teamSlider.querySelector('.team__arrow--prev');
+        const nextBtn = teamSlider.querySelector('.team__arrow--next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === index));
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+            currentSlide = index;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => showSlide(i));
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const track = teamSlider.querySelector('.team__track');
+
+        track.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    showSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+                } else {
+                    showSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+                }
+            }
+        }, { passive: true });
+    }
+
     // ===== Cookies Banner =====
     const cookiesBanner = document.getElementById('cookiesBanner');
     const cookiesAccept = document.getElementById('cookiesAccept');
