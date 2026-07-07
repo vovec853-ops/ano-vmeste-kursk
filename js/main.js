@@ -170,6 +170,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ===== Modals =====
+    document.querySelectorAll('[data-modal]').forEach(trigger => {
+        trigger.addEventListener('click', e => {
+            e.preventDefault();
+            const modalId = 'modal-' + trigger.dataset.modal;
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    document.querySelectorAll('[data-modal-close]').forEach(el => {
+        el.addEventListener('click', () => {
+            el.closest('.modal').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', e => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal.active').forEach(m => {
+                m.classList.remove('active');
+            });
+            document.body.style.overflow = '';
+        }
+    });
+
     // ===== Cookies Banner =====
     const cookiesBanner = document.getElementById('cookiesBanner');
     const cookiesAccept = document.getElementById('cookiesAccept');
