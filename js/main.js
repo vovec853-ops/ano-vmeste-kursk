@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     }
 
-    // ===== Gallery lightbox (simple) =====
+    // ===== Gallery lightbox =====
     const galleryItems = document.querySelectorAll('.gallery__item');
     
     galleryItems.forEach(item => {
@@ -269,5 +269,169 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('cookiesAccepted', 'true');
             cookiesBanner.classList.remove('active');
         });
+    }
+
+    // ===== Donate Form (YooKassa Checkout Widget) =====
+    const donateForm = document.getElementById('donateForm');
+    const donateBtn = document.getElementById('donateBtn');
+    const donateMessage = document.getElementById('donateMessage');
+
+    // Cloud Function URL — REPLACE AFTER DEPLOYMENT
+    // Example: 'https://your-project.vercel.app/api/create-payment'
+    const CLOUD_FUNCTION_URL = 'https://vercel-deploy-rust-gamma.vercel.app/api/create-payment';
+
+    // YooKassa Checkout Widget instance
+    let checkoutWidget = null;
+
+    if (donateForm) {
+        donateForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Get amount
+            const amountRadio = donateForm.querySelector('input[name="amount"]:checked');
+            const customInput = document.getElementById('customAmount');
+            let amount = amountRadio ? parseInt(amountRadio.value, 10) : 0;
+            
+            if (customInput && customInput.value) {
+                amount = parseInt(customInput.value, 10);
+            }
+
+            // Validate
+            if (!amount || amount < 10) {
+                showDonateMessage('Минимальная сумма пожертвования — 10 ₽', 'error');
+                return;
+            }
+
+            // Get email
+            const emailInput = document.getElementById('donorEmail');
+            const email = emailInput ? emailInput.value.trim() : '';
+
+            // Show loader
+            setLoading(true);
+            hideDonateMessage();
+
+            // If Cloud Function not configured, show info
+            if (!CLOUD_FUNCTION_URL) {
+                await new Promise(r => setTimeout(r, 800));
+                showDonateMessage(
+                    'Платёжная система в процессе подключения. ' +
+                    'Для пожертвования свяжитесь с нами через ВКонтакте или используйте банковские реквизиты.',
+                    'info'
+                );
+                setLoading(false);
+                return;
+            }
+
+            // Call Cloud Function to create payment and get confirmation_token
+            try {
+                const response = await fetch(CLOUD_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: amount,
+                        email: email,
+                        description: 'Пожертвование АНО Социально-досуговый центр ВМЕСТЕ'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.confirmation_token) {
+                    // Open YooKassa Checkout Widget
+                    openCheckoutWidget(data.confirmation_token);
+                } else {
+                    showDonateMessage(data.error || 'Ошибка при создании платежа. Попробуйте позже.', 'error');
+                }
+            } catch (err) {
+                showDonateMessage('Ошибка соединения. Проверьте интернет и попробуйте снова.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        });
+    }
+
+    function openCheckoutWidget(confirmationToken) {
+        // Destroy previous widget if exists
+        if (checkoutWidget) {
+            checkoutWidget.destroy();
+        }
+
+        // Create container for widget if not exists
+        let widgetContainer = document.getElementById('yookassa-widget');
+        if (!widgetContainer) {
+            widgetContainer = document.createElement('div');
+            widgetContainer.id = 'yookassa-widget';
+            widgetContainer.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.7);
+                z-index: 10001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            `;
+            document.body.appendChild(widgetContainer);
+        }
+        widgetContainer.style.display = 'flex';
+        widgetContainer.innerHTML = '<div id="yookassa-widget-inner" style="background: white; border-radius: 16px; max-width: 500px; width: 100%; padding: 20px;"></div>';
+
+        // Initialize YooKassa Checkout Widget
+        checkoutWidget = new window.YooKassaCheckoutWidget({
+            confirmation_token: confirmationToken,
+            return_url: 'https://vovec853-ops.github.io/ano-vmeste-kursk/?payment=success',
+            error_callback: function(error) {
+                console.error('YooKassa Widget Error:', error);
+                showDonateMessage('Ошибка при оплате. Попробуйте снова.', 'error');
+                closeCheckoutWidget();
+            }
+        });
+
+        checkoutWidget.render('yookassa-widget-inner');
+
+        // Close widget on background click
+        widgetContainer.addEventListener('click', function(e) {
+            if (e.target === widgetContainer) {
+                closeCheckoutWidget();
+            }
+        });
+
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCheckoutWidget() {
+        if (checkoutWidget) {
+            checkoutWidget.destroy();
+            checkoutWidget = null;
+        }
+        const widgetContainer = document.getElementById('yookassa-widget');
+        if (widgetContainer) {
+            widgetContainer.style.display = 'none';
+        }
+        document.body.style.overflow = '';
+    }
+
+    function setLoading(isLoading) {
+        if (!donateBtn) return;
+        const text = donateBtn.querySelector('.btn__text');
+        const loader = donateBtn.querySelector('.btn__loader');
+        if (text) text.style.display = isLoading ? 'none' : '';
+        if (loader) loader.style.display = isLoading ? '' : 'none';
+        donateBtn.disabled = isLoading;
+    }
+
+    function showDonateMessage(msg, type) {
+        if (!donateMessage) return;
+        donateMessage.textContent = msg;
+        donateMessage.className = 'donate__message donate__message--' + type;
+        donateMessage.style.display = 'block';
+    }
+
+    function hideDonateMessage() {
+        if (!donateMessage) return;
+        donateMessage.style.display = 'none';
     }
 });

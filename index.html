@@ -396,16 +396,23 @@
                 <div class="donate__left">
                     <h2 class="donate__title">Поддержите наши проекты</h2>
                     <p class="donate__text">Ваше пожертвование помогает детям с особенностями развития получить необходимую помощь, семьям — пережить трудные времена, а обществу — стать добрее. Каждый вклад важен.</p>
-                    <form class="donate__form" id="donateForm" onsubmit="event.preventDefault(); alert('Форма оплаты в процессе подключения. Свяжитесь с нами через ВК для пожертвования.');">
+                    <form class="donate__form" id="donateForm">
                         <div class="donate__amounts">
                             <label class="donate__amount"><input type="radio" name="amount" value="500" checked><span>500 ₽</span></label>
                             <label class="donate__amount"><input type="radio" name="amount" value="1000"><span>1 000 ₽</span></label>
                             <label class="donate__amount"><input type="radio" name="amount" value="3000"><span>3 000 ₽</span></label>
                             <label class="donate__amount"><input type="radio" name="amount" value="5000"><span>5 000 ₽</span></label>
                         </div>
-                        <div class="donate__custom"><input type="number" name="custom" placeholder="Другая сумма" min="100"></div>
-                        <button type="submit" class="btn btn--primary btn--large">Пожертвовать</button>
+                        <div class="donate__custom"><input type="number" name="custom" id="customAmount" placeholder="Другая сумма" min="10" step="1"></div>
+                        <div class="donate__email"><input type="email" name="email" id="donorEmail" placeholder="Ваш email (для чека)"></div>
+                        <button type="submit" class="btn btn--primary btn--large" id="donateBtn">
+                            <span class="btn__text">Пожертвовать</span>
+                            <span class="btn__loader" style="display:none;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20" style="animation:spin 1s linear infinite"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg>
+                            </span>
+                        </button>
                         <p class="donate__note">Нажимая кнопку, вы соглашаетесь с <a href="#" data-modal="offer" style="color: var(--color-accent); text-decoration: underline;">условиями публичной оферты</a>.</p>
+                        <div class="donate__message" id="donateMessage" style="display:none;"></div>
                     </form>
                 </div>
                 <div class="donate__right">
@@ -527,6 +534,7 @@
         </div>
     </div>
 
+    <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Cookies Banner -->
