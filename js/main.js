@@ -277,7 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const donateMessage = document.getElementById('donateMessage');
 
     // Cloud Function URL — REPLACE AFTER DEPLOYMENT
-    // Example: 'https://your-project.vercel.app/api/create-payment'
     const CLOUD_FUNCTION_URL = 'https://vercel-deploy-rust-gamma.vercel.app/api/create-payment';
 
     // YooKassa Checkout Widget instance
@@ -309,18 +308,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show loader
             setLoading(true);
             hideDonateMessage();
-
-            // If Cloud Function not configured, show info
-            if (!CLOUD_FUNCTION_URL) {
-                await new Promise(r => setTimeout(r, 800));
-                showDonateMessage(
-                    'Платёжная система в процессе подключения. ' +
-                    'Для пожертвования свяжитесь с нами через ВКонтакте или используйте банковские реквизиты.',
-                    'info'
-                );
-                setLoading(false);
-                return;
-            }
 
             // Call Cloud Function to create payment and get confirmation_token
             try {
@@ -377,9 +364,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.appendChild(widgetContainer);
         }
         widgetContainer.style.display = 'flex';
-        widgetContainer.innerHTML = '<div id="yookassa-widget-inner" style="background: white; border-radius: 16px; max-width: 500px; width: 100%; padding: 20px;"></div>';
+        widgetContainer.innerHTML = '<div id="yookassa-widget-inner" style="background: white; border-radius: 16px; max-width: 500px; width: 100%; min-height: 400px; padding: 20px;"></div>';
 
         // Initialize YooKassa Checkout Widget
+        const widgetInner = document.getElementById('yookassa-widget-inner');
         checkoutWidget = new window.YooKassaCheckoutWidget({
             confirmation_token: confirmationToken,
             return_url: 'https://vovec853-ops.github.io/ano-vmeste-kursk/?payment=success',
@@ -390,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        checkoutWidget.render('yookassa-widget-inner');
+        checkoutWidget.render(widgetInner);
 
         // Close widget on background click
         widgetContainer.addEventListener('click', function(e) {
@@ -432,6 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function hideDonateMessage() {
         if (!donateMessage) return;
-        donateMessage.style.display = 'none';
+            donateMessage.style.display = 'none';
     }
 });
